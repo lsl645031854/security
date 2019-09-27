@@ -22,7 +22,7 @@ public class Consumer {
 	public static void main(String[] args) throws JMSException, IOException {
 		//第一步：根据url创建一个jms Connection。
 		String QUEUE = "first-queue";
-		ActiveMQConnectionFactory connectionfactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
+		ActiveMQConnectionFactory connectionfactory = new ActiveMQConnectionFactory("tcp://localhost:61617");
 		Connection connection = connectionfactory.createConnection();
 		connection.start();
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
