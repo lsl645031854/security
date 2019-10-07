@@ -50,7 +50,7 @@ public class ObjectMapperTest {
 	}
 
 	@Test
-	public void test2() throws Exception {
+	public void test2() {
 		User user = new User("root", "root");
 		user.setId(2);
 		Integer id = ObjectUtil.getFieldValueByName("id", user, Integer.class);
