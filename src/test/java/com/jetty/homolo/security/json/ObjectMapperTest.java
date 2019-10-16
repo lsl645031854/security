@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 
 /**
  * @Author homolo
- * @DESC 优化.
+ * @DESC ObjectMapperTest优化.
  * @Create 2019-09-27  上午10:27
  */
 @RunWith(SpringRunner.class)

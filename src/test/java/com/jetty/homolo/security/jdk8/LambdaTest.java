@@ -6,8 +6,10 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.PrintStream;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @Author: lsl
@@ -18,10 +20,10 @@ import java.util.function.Function;
 public class LambdaTest {
 
     private List<Employee> employees = Arrays.asList(
-            new Employee("tom", 18, 3333d),
-            new Employee("admin", 19, 4000d),
-            new Employee("root", 20, 3500d),
             new Employee("rose", 21, 5000d),
+            new Employee("root", 18, 3333d),
+            new Employee("rose", 19, 5300d),
+            new Employee("root", 20, 4500d),
             new Employee("mary", 22, 5100d)
     );
     // 匿名内部类.
@@ -35,6 +37,19 @@ public class LambdaTest {
         };
 
         TreeSet<Integer> treeSet = new TreeSet<>(comparator);
+    }
+    @Test
+    public void testStream() {
+        TreeMap<String, List<Employee>> collect = employees.stream().collect(Collectors.groupingBy(Employee::getName, TreeMap::new, Collectors.toList()));
+        collect.entrySet().stream().forEach(map->{
+            List<Employee> value = map.getValue();
+            String key = map.getKey();
+            if (!key.equals("mary")) {
+                return;
+            }
+            System.out.println(key);
+            System.out.println(value);
+        });
     }
 
     @Test
@@ -111,7 +126,8 @@ public class LambdaTest {
    }
 
     private void print(List<Employee> list) {
-        list.forEach(System.out::println);
+        PrintStream out = System.out;
+        list.forEach(out::println);
     }
 
 }
