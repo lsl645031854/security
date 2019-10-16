@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.*;
+import java.util.function.Function;
 
 /**
  * @Author: lsl
@@ -78,11 +79,14 @@ public class LambdaTest {
         List<Employee> list = filterEmployee(employees,
                             employee -> employee.getSalary() >= 5000);
         print(list);
+        Function<Employee, String> function = Employee::getName;
+        employees.stream().map(function);
     }
 
     @Test
     public void test6() {
         employees.stream().filter(employee -> employee.getSalary() >= 5000)
+                    .map(Employee::getName)
                     .forEach(System.out::println);
     }
 
