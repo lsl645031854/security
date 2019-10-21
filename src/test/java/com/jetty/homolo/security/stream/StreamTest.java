@@ -128,6 +128,29 @@ public class StreamTest {
     public void test8() {
         List<Integer> list = dashes.stream().map(Dash::getCalories).collect(Collectors.toCollection(ArrayList::new));
         int sum = dashes.stream().mapToInt(Dash::getCalories).sum();
-        long count = dashes.stream().map(Dash::getCalories).count();
+        // 获取总数
+        long count = dashes.stream().count();
+        // 获取平均数
+        Double ave = dashes.stream().collect(Collectors.averagingInt(Dash::getCalories));
+        // 分组
+        Map<Integer, List<Dash>> group = dashes.stream().collect(Collectors.groupingBy(Dash::getCalories));
+        System.out.println(group);
+    }
+
+    @Test
+    public void test9() {
+       List<String> list = Arrays.asList("a", "b", "c", "d");
+        String join = String.join(",", list);
+        System.out.println(join);
+
+        String collect = list.stream().collect(Collectors.joining(",", "==", "=="));
+        System.out.println(collect);
+    }
+
+    @Test
+    public void test10() {
+        List<Integer> list = Arrays.asList(2,3);
+        Integer reduce = list.stream().reduce(0, (x, y) -> x * x + y * y);
+        System.out.println(reduce);
     }
 }
