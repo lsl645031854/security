@@ -85,16 +85,16 @@ public class StreamTest {
         }).forEach(System.out::println);
     }
     // 终止操作
-//    1- 查找与匹配
-//allMatch(Predicate p)——检查是否匹配所有元素
-//anyMatch(Predicate p)——检查是否至少匹配一个元素
-//noneMatch(Predicate p)——检查是否没有匹配的元素
-//findFirst——返回第一个元素
-//findAny——返回当前流中的任意元素
-//count——返回流中元素的总个数
-//max(Comparator c)——返回流中最大值
-//min(Comparator c)——返回流中最小值
-//forEach(Consumer c)——内部迭代
+    // 1- 查找与匹配
+    //allMatch(Predicate p)——检查是否匹配所有元素
+    //anyMatch(Predicate p)——检查是否至少匹配一个元素
+    //noneMatch(Predicate p)——检查是否没有匹配的元素
+    //findFirst——返回第一个元素
+    //findAny——返回当前流中的任意元素
+    //count——返回流中元素的总个数
+    //max(Comparator c)——返回流中最大值
+    //min(Comparator c)——返回流中最小值
+    //forEach(Consumer c)——内部迭代
     @Test
     public void test6() {
         boolean b = dashes.stream().anyMatch(dash -> dash.getCalories() == 510);
@@ -112,14 +112,15 @@ public class StreamTest {
 //    reduce(BinaryOperator) ——可以将流中元素反复结合起来，得到一个值。返回 Optional<T>
     @Test
     public void test7() {
-        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9);
+        List<Integer> list = Arrays.asList(1,2,3);
         Optional<Integer> reduce = list.stream().reduce((x, y) -> x + y);
         System.out.println(reduce.get());
 
-        Integer reduce1 = list.stream().reduce(0, (x, y) -> x + y);
+        Integer reduce1 = list.stream().reduce(0, (x, y) -> x*x + y*y);
         System.out.println(reduce1);
         System.out.println("==========================");
-        Optional<Integer> sum = dashes.stream().map(Dash::getCalories).reduce(Integer::sum);
+        Optional<Integer> sum = dashes.stream().distinct().map(Dash::getCalories).reduce(Integer::sum);
+        System.out.println(sum.get());
     }
 //  3-收集
 //  collect(Collector c)——将流转换为其他形式。接收一个 Collector接口的实现，

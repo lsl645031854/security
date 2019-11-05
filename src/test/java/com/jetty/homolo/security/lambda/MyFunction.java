@@ -8,4 +8,8 @@ package com.jetty.homolo.security.lambda;
 @FunctionalInterface
 public interface MyFunction {
     String stringHandler(String s);
+
+    static void doSome() {
+        System.out.println("do some ...");
+    }
 }

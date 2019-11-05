@@ -1,6 +1,5 @@
 package com.jetty.homolo.security.lambda;
 
-import com.jetty.homolo.security.jdk8.MyFun;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -52,5 +51,13 @@ public class LambdaTest2 {
         Predicate<Integer> predicate = x -> (x * x) > 4;
         boolean test = predicate.test(5);
         System.out.println(test);
+    }
+
+    @Test
+    public void test5() {
+        MyFunction function = String::toLowerCase;
+        String adc = function.stringHandler("ABC");
+        System.out.println(adc);
+        MyFunction.doSome();
     }
 }
