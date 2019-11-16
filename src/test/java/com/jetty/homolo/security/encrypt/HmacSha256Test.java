@@ -10,9 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.crypto.Mac;
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
@@ -42,6 +39,9 @@ public class HmacSha256Test {
 		byte[] bytes1 = mac.doFinal();
 		System.out.println(Arrays.toString(bytes));
 		System.out.println(Arrays.toString(bytes1));
+
+		String string = Base64.encodeBase64String(bytes);
+		System.out.println(string);
 	}
 
 	@Test
