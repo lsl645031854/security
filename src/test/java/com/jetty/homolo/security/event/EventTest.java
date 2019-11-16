@@ -10,5 +10,8 @@ public class EventTest {
 		EventSourceObject object = new EventSourceObject();
 		object.addCusListener(new CusEventListener());
 		object.setName("123");
+
+		String string = Integer.toOctalString(15); // 转进制
+		System.out.println(string);
 	}
 }
