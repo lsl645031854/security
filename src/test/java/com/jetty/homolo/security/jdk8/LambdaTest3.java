@@ -1,5 +1,6 @@
 package com.jetty.homolo.security.jdk8;
 
+import com.jetty.homolo.security.lambda.MyClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -26,6 +27,11 @@ public class LambdaTest3 {
         MyFun mf = x -> x * 100;
         Integer num = mf.operation(100);
         System.out.println(num);
+
+        String name = mf.getName();
+        System.out.println(name);
+
+        MyClass myClass = new MyClass();
     }
 
     @Test

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -32,11 +33,19 @@ public class ReferenceTest {
 
     @Test
     public void test3() {
+        // 静态方法引用.
         List<Integer> list = Arrays.asList(2, 3, 4, 1, 22, 33, 11, 12);
         Comparator<Integer> comparator = Integer::compare;
 
         list.sort(comparator);
         list.forEach(System.out::println);
+    }
 
+    @Test
+    public void test4() {
+        // 某个类型的任意对象的实例方法引用
+        Function<String, String> function = String::toUpperCase;
+        String s = function.apply("reference");
+        System.out.println(s);
     }
 }

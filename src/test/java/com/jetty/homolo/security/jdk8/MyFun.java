@@ -8,4 +8,8 @@ package com.jetty.homolo.security.jdk8;
 @FunctionalInterface
 public interface MyFun<T, R> {
     Integer operation(Integer num);
+
+    default String getName() {
+      return "default";
+    };
 }
