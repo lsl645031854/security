@@ -13,9 +13,9 @@ public class ExceptionTest {
 	public void test() {
 		try {
 			try {
-				throw new ExceptionB();
+				throw new ExceptionB("exception b");
 			} catch (ExceptionA a) {
-				System.out.println(a);
+				System.out.println(a.getMessage());
 				throw a;
 			}
 		} catch (ExceptionB b) {

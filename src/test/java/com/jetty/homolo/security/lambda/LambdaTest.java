@@ -68,6 +68,8 @@ public class LambdaTest {
     public void test5() {
         List<Dash> dashList = filterDashByFilter(dashes, dash -> dash.getCalories() > 500);
         println(dashList);
+
+//        FilterDash<Dash> filterDash = dash -> dash.getCalories() > 500;
     }
 
     @Test

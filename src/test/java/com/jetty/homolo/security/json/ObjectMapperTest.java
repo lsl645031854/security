@@ -1,5 +1,6 @@
 package com.jetty.homolo.security.json;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jetty.homolo.security.entity.User;
 import com.jetty.homolo.security.utils.ObjectUtil;
