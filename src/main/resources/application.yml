@@ -28,6 +28,11 @@ spring:
     pool:
       enabled: true
       max-connections: 10
+  elasticsearch:
+    rest:
+      uris: ["http://localhost:9200"]
+      ip-addrs:
+        - localhost:9200
 server:
   port: 8086
 mybatis:
