@@ -1,4 +1,4 @@
-package com.jetty.homolo.security.lambda;
+package com.jetty.homolo.security.jdk8.lambda;
 
 import com.jetty.homolo.security.entity.Dash;
 import org.junit.Test;

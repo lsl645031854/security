@@ -1,6 +1,6 @@
 package com.jetty.homolo.security.jdk8;
 
-import com.jetty.homolo.security.lambda.MyClass;
+import com.jetty.homolo.security.jdk8.lambda.MyClass;
 import org.junit.Test;
 
 import java.util.ArrayList;

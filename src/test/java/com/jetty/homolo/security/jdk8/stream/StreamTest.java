@@ -1,12 +1,10 @@
-package com.jetty.homolo.security.stream;
+package com.jetty.homolo.security.jdk8.stream;
 
 import com.jetty.homolo.security.entity.Dash;
 import org.junit.Test;
 
 import java.util.*;
 import java.util.function.Function;
-import java.util.function.ToIntFunction;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
