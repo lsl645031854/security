@@ -1,10 +1,13 @@
 package com.jetty.homolo.security.config;
 
+import com.jetty.homolo.security.elasticsearch.ESClientSpringFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +25,7 @@ import java.util.Objects;
 @ConfigurationProperties(prefix = "spring.elasticsearch.rest")
 @EnableConfigurationProperties(ElasticsearchRestClientConfig.class)
 public class ElasticsearchRestClientConfig {
-
+	private  final Logger LOGGER = LoggerFactory.getLogger(ElasticsearchRestClientConfig.class);
 	private static final int ES_IPADDRS_LENGTH = 2;
 	private static final String HTTP_SCHEME = "http";
 
@@ -56,6 +59,7 @@ public class ElasticsearchRestClientConfig {
 	public RestHighLevelClient highLevelClient(RestClientBuilder restClientBuilder) {
 		return new RestHighLevelClient(restClientBuilder);
 	}
+
 
 	private HttpHost makeHttpHost(String s) {
 		assert StringUtils.isNotEmpty(s);
