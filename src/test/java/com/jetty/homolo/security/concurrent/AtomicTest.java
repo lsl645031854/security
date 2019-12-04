@@ -1,7 +1,5 @@
 package com.jetty.homolo.security.concurrent;
 
-import org.checkerframework.checker.units.qual.A;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
