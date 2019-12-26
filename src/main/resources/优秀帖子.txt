@@ -1,0 +1,44 @@
+#mysql安装
+http://www.cppcns.com/shujuku/mysql/283231.html
+
+#docker
+docker run \
+-p 6380:6379 \
+-v /home/docker/reids/data:/data \
+-v /home/docker/reids/conf/redis.conf:/etc/redis/redis.conf \
+--privileged=true \
+--name myredis \
+-d redis redis-server /etc/redis/redis.conf
+
+
+
+
+docker run -v /home/docker/activemq/lib:/myjars --name activemq -p 61616:61616 -p 8161:8161  -e ACTIVEMQ_ADMIN_LOGIN=admin -e ACTIVEMQ_ADMIN_PASSWORD=123456 --restart=always -d webcenter/activemq
+68b64179568c5db8ff0861eb5f5dde89bd351a2dc925295d603efb09d40214ad
+
+
+mysql 172.17.0.3
+apt-get install iputils-ping
+
+
+	<persistenceAdapter>
+            <jdbcPersistenceAdapter dataSource="#mysql-ds"/>
+        </persistenceAdapter>
+
+
+
+<bean id="mysql-ds" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+      <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="url" value="jdbc:mysql://mysql:3306/homolo?relaxAutoCommit=true&useUnicode=true&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&useSSL=false"/>
+      <property name="username" value="root"/>
+      <property name="password" value="123456"/>
+</bean>
+
+
+#es相关命令
+service elasticsearch start
+service elasticsearch stop
+
+#kibana相关命令
+sudo systemctl start kibana.service
+sudo systemctl stop kibana.service
