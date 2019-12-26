@@ -42,3 +42,6 @@ service elasticsearch stop
 #kibana相关命令
 sudo systemctl start kibana.service
 sudo systemctl stop kibana.service
+
+#权限修复 chmod 777 -R /（误操作）
+https://www.cnblogs.com/kofxxf/p/5220836.html
