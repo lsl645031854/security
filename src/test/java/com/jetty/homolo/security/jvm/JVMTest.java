@@ -47,8 +47,7 @@ public class JVMTest {
         }
     }
 
-    private static void sort(int a[], int left, int right)
-    {
+    private static void sort(int a[], int left, int right) {
         if(left >= right)
         {
             return ;
@@ -57,15 +56,12 @@ public class JVMTest {
         int j = right;
         int key = a[left];
 
-        while(i < j)
-        {
-            while(i < j && key <= a[j])
-            {
+        while(i < j) {
+            while(i < j && key <= a[j]) {
                 j--;
             }
             a[i] = a[j];
-            while(i < j && key >= a[i])
-            {
+            while(i < j && key >= a[i]) {
                 i++;
             }
             a[j] = a[i];
@@ -106,4 +102,16 @@ public class JVMTest {
         return character;
     }
 
+   private void sort1(int[] a, int left, int right) {
+        if (left > right) {
+            return;
+        }
+        int i = left;
+        int j = right;
+        int key = a[left];
+
+        while (i < j) {
+
+        }
+   }
 }
