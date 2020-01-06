@@ -1,5 +1,7 @@
 package com.jetty.homolo.security.controller;
 
+import com.jetty.homolo.security.entity.Shoe;
+import org.json.JSONArray;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +16,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author homolo
@@ -35,13 +40,26 @@ public class UserControllerTest {
 
 	@Test
 	public void getHello() throws Exception {
-		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/user")
+        String shoesString = list2String();
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/user")
 				.param("username", "rose")
 				.param("password", "123456")
+				.param("shoes", new Shoe("red", 42).toString(),
+                        new Shoe("black", 41).toString())
+//                .content()
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andReturn();
 		System.out.println(mvcResult.getResponse().getStatus());
 		System.out.println(mvcResult.getResponse().getContentAsString());
+	}
+
+	private String list2String() {
+        List<Shoe> list = new ArrayList<>();
+        Shoe shoe = new Shoe("red", 42);
+        Shoe shoe1 = new Shoe("black", 41);
+        list.add(shoe);
+        list.add(shoe1);
+        return list.toString();
 	}
 }

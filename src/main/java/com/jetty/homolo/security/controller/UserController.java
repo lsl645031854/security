@@ -20,6 +20,7 @@ public class UserController {
 	@PostMapping
 	public String createUser(User user) {
 		logger.info("username:{}", user.getUsername());
+		logger.info("username:{}", user.getShoes());
 		return "111";
 	}
 }

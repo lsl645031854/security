@@ -1,6 +1,7 @@
 package com.jetty.homolo.security.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Author homolo
@@ -12,6 +13,7 @@ public class User implements Serializable {
 	private Integer id;
 	private String username;
 	private String password;
+	private List<Shoe> shoes;
 
 	public User(String username, String password) {
 		this.username = username;
@@ -45,7 +47,15 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	@Override
+    public List<Shoe> getShoes() {
+        return shoes;
+    }
+
+    public void setShoes(List<Shoe> shoes) {
+        this.shoes = shoes;
+    }
+
+    @Override
 	public String toString() {
 		return "User{" + "id=" + id + ", username='" + username + '\'' + ", password='" + password + '\'' + '}';
 	}
