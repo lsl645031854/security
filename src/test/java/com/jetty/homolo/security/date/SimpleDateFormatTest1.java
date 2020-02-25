@@ -1,6 +1,7 @@
 package com.jetty.homolo.security.date;
 
 import com.google.common.collect.Lists;
+import org.apache.commons.lang3.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,6 +42,9 @@ public class SimpleDateFormatTest1 {
         }).forEach(System.out::println);
 //        results.stream().forEach(System.out::println);
         pool.shutdown();
+
+        String s = String.valueOf(null);
+        System.out.println(s);
 
     }
 }
