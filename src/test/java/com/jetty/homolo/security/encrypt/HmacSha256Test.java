@@ -4,6 +4,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.codec.digest.HmacAlgorithms;
 import org.apache.commons.codec.digest.HmacUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -41,12 +42,21 @@ public class HmacSha256Test {
 		System.out.println(Arrays.toString(bytes1));
 
 		String string = Base64.encodeBase64String(bytes);
+		String string1 = Base64.encodeBase64String(bytes1);
 		System.out.println(string);
+		System.out.println(string1);
 	}
 
 	@Test
 	public void testMD5() {
 		String md5Digest = DigestUtils.md5Hex("中国");
 		System.out.println(md5Digest);
+	}
+
+
+	@Test
+	public void testHmac() {
+		boolean blank = StringUtils.isBlank(null);
+		System.out.println(blank);
 	}
 }

@@ -24,6 +24,7 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private RedisTemplate redisTemplate;
 
+	@Override
 	public User findUserById(int id) {
 		String key = "user_" + id;
 		ValueOperations<String, User> operations = redisTemplate.opsForValue();
