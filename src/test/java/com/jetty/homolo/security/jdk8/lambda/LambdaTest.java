@@ -74,7 +74,7 @@ public class LambdaTest {
 
     @Test
     public void test6() {
-        Collections.sort(dashes, (d1, d2) -> {
+        dashes.sort((d1, d2) -> {
             if (d1.getCalories() == d2.getCalories()) {
                 return d1.getName().compareTo(d2.getName());
             } else {
