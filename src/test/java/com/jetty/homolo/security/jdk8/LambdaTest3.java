@@ -36,15 +36,22 @@ public class LambdaTest3 {
 
     @Test
     public void test2() {
-        // 供给型接口
+        // 供给型接口  get的时候才会执行方法
         Random random = new Random();
-        List<Integer> numList = getNumList(10, () -> random.nextInt(10));
+        List<Integer> numList = getNumList(1, () -> {
+            System.out.println("开始获取随机数");
+            int i = random.nextInt(10);
+            System.out.println("结束获取随机数");
+            return i;
+        });
         numList.forEach(System.out::println);
     }
     private List<Integer> getNumList(int num, Supplier<Integer> sup) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < num; i++) {
+            System.out.println("执行get开始");
             Integer item = sup.get();
+            System.out.println("执行get结束");
             list.add(item);
         }
         return list;

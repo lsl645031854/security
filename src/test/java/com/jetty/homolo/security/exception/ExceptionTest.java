@@ -15,7 +15,7 @@ public class ExceptionTest {
 			try {
 				throw new ExceptionB("exception b");
 			} catch (ExceptionA a) {
-				System.out.println(a.getMessage());
+				System.out.println(a.getMessage()); // a的真实类型还是 ExceptionB，所有可以被ExceptionB捕获
 				throw a;
 			}
 		} catch (ExceptionB b) {

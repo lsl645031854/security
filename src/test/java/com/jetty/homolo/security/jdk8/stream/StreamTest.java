@@ -142,14 +142,14 @@ public class StreamTest {
         String join = String.join(",", list);
         System.out.println(join);
 
-        String collect = list.stream().collect(Collectors.joining(",", "==", "=="));
+        String collect = list.stream().collect(Collectors.joining(",", "(", ")"));
         System.out.println(collect);
     }
 
     @Test
     public void test10() {
         List<Integer> list = Arrays.asList(2,3);
-        Integer reduce = list.stream().reduce(0, (x, y) -> x * x + y * y);
+        Integer reduce = list.stream().reduce(0, Integer::sum);
         System.out.println(reduce);
     }
 }
